@@ -52,6 +52,23 @@
             text-align: right;
             font-style: italic;
         }
+        .audio-player {
+            margin: 20px 0;
+            padding: 10px; 
+            border-radius: 5px;
+            max-width: 300px;
+        }
+        .sfx {
+            background-color: #d4edda; /* light green */
+        }
+        .band {
+            background-color: #cce5ff; /* light blue */
+        }
+        .audio-player label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: small;
+        }
         .music-cue, .sfx-cue, .proj-cue {
             font-style: italic;
             color: #666;
@@ -76,12 +93,16 @@
     <div class="scene">
         <p class="scene-heading">Scene 1 - Halloween Town</p>
         <p class="action">(Dark atmosphere, mist swirls around as the people of Halloween Town gather to celebrate their favorite day)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">Cue 1a - This is Halloween</p>
-        <audio controls>
-            <source src="mp3s/This is Halloween.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 1 - This is Halloween</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/This is Halloween.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
         <p class="action">(The celebrations conclude and the people of Halloween Town discuss the success of the celebrations.)</p>
         <p class="character">Big Witch:</p>
         <p class="dialogue">Jack, that was horrific! It made my skin crawl!</p>
@@ -108,12 +129,16 @@
         <p class="character">Finklestein:</p>
         <p class="dialogue">Come back here!</p>
         <p class="action">(He chases her off stage.)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">Cue 1b - Year After Year</p>
-        <audio controls>
-            <source src="mp3s/Year After Year.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 2 - Year After Year</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Year After Year.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
     </div>
     
     <div class="scene">
@@ -127,12 +152,16 @@
         <p class="action">(Jack walks off stage into the unknown, Sally reveals herself from behind a statue.)</p>
         <p class="character">Sally:</p>
         <p class="dialogue">Oh Jack, but you were made for Halloween.</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">Cue 1c - Oh Fare Thee Well</p>
-        <audio controls>
-            <source src="mp3s/Oh Fare Thee Well.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 3 - Oh Fare Thee Well</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Oh Fare Thee Well.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
     </div>
     
        
@@ -143,7 +172,7 @@
         <p class="character">Jack:</p>
         <p class="dialogue">I've never been here before, how strange…</p>
         <!--VIDEO-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">PROJ Cue 1d - Jack's journey</p>
+        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">VID 3a - Jack's journey</p>
         <p class="action">(Jack touches the Christmas tree and reacts as it opens wide and sucks him in!)</p>
     </div>
 
@@ -168,31 +197,54 @@
         <p class="dialogue">Maybe he got eaten by a great big snake!</p>
         <p class="character">Mayor:</p>
         <p class="dialogue">(Very angry) Well we've got to find him! Everyone look! We can't do Halloween without him! Sound the alarm!</p>
-        <!--SFX-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SFX Cue 2b - Spooky cat alarm</p>
+    <!-- SFX -->
+    <div class="audio-player sfx">
+        <label for="sfx-audio" style="font-size: small;">SFX 1 - Spooky cat alarm</label>
+        <audio id="sfx-audio" controls>
+            <source src="mp3s/Cat Alarm.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
     </div>
 
 
     <div class="scene">
         <p class="scene-heading">Scene 5 - Christmas town</p>
         <p class="action">(Jack suddenly finds himself through the door into a bank of snow, as the song starts up Jack reacts in wonderment at all the incredible Christmas things around him.)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">Cue 2c - What's this?</p>
-<audio controls>
-    <source src="mp3s/Whats This.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
-        <!--SFX-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SFX 3a - Banging head on pole</p>
+  
+
+                    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="sfx-audio" style="font-size: small;">MUS 4 - What's this?</label>
+        <audio id="sfx-audio" controls>
+            <source src="mp3s/Whats This.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        </div>
+
+            <!-- SFX -->
+    <div class="audio-player sfx">
+        <label for="sfx-audio" style="font-size: small;">SFX 2 - Banging head on pole</label>
+        <audio id="sfx-audio" controls>
+            <source src="mp3s/Hits the Sign.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        </div>
+       
         <p class="action">(Jack hits his head on a nearby pole, and reads the sign)</p>
         <p class="character">Jack:</p>
         <p class="dialogue">Christmas town?</p>
-                <!--SONG-->
-                <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 3b - Year After Year Reprise</p>
-                <audio controls>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 5 - Year After Year Reprise</label>
+                <audio id="band-audio" controls>
                     <source src="mp3s/Year After Year Reprise.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
+            </div>
+
+
     </div>
 
 
@@ -229,10 +281,22 @@
         <p class="dialogue">When?!</p>
         <p class="character">Jack:</p>
         <p class="dialogue">Immediately!</p>
-        <p class="action">(Transition to town hall, actors move chairs onto stage, all the while SFX cue plays)</p>
-        <!--SFX-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SFX 3b - Town meeting transition (Mayor repeatedly saying "town meeting")</p>
+
+
+            <!-- SFX -->
+            <div class="audio-player sfx">
+                <label for="band-audio" style="font-size: small;">SFX 3 - Haunting Bell</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Haunting Bell.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+
+               <p class="action">(Transition to town hall, actors move chairs onto stage, all the while SFX cue plays)</p>
     </div>
+
+
 
 
     <div class="scene">
@@ -278,20 +342,29 @@
         <p class="dialogue">No, you don't understand, that's not the point of Christmas land….</p>
         <p class="action">(Aside) Well, I may as well give them what they want…</p>
         <p class="dialogue">Now the ruler of this Christmas town is a fearsome king in red, he sits his throne on a chair of ice and stone. A great large monster, with a grand deep voice who takes to the skies on a moonlight night!</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 3c - And they call him...</p>
-<audio controls>
-    <source src="mp3s/And They Call Him Sandy Claws.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 6 - And they call him...</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/And They Call Him Sandy Claws.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
         <p class="dialogue">And they call him 'Sandy Claws'.</p>
         <p class="action">(Jack cackles he crowd applauses and cackles with him)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 4a - Sally's song intro</p>
-<audio controls>
-    <source src="mp3s/Sally's Song Intro.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 7 - Sally's song intro</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Sally's Song Intro.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+
     </div>
 
 
@@ -324,28 +397,40 @@
         <p class="action">(She moves to window, looking out at Halloween town)</p>
         <p class="dialogue">All this talk of Christmas, it's not good, too weird, too happy- what's wrong with Halloween? Everyone likes it, everyone knows it, things are changing and I don't like change. I'll show that doctor, next year I'll be in the great Halloween festival then he'll see I'm not fit for making 'soup' and cleaning the floors.</p>
         <p class="action">(She picks an old nearly dead flower from the nearby windowsill, picking the petals all the while saying)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SONG 4b - Sally's Song</p>
-<audio controls>
-    <source src="mp3s/Sally's Song.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 8 - Sally's Song</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Sally's Song.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+
         <p class="dialogue">He loves me, he loves not, he loves me, he loves me not, he-</p>
         <!--VIDEO-->
-<p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">PROJ. 4c - Sally’s Vision</p>
+        <div class="audio-player band">
+<p style="font-size: small; margin-top: 0px; margin-left: 10px; margin-bottom: -0px">VID 1 / MUS 9 - Sally’s Vision</p>
 <div class="video-container">
     <iframe src="https://www.youtube.com/embed/J1sgTytXLRk?start=3" title="Sally's Vision" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </div>
         <p class="action">(She stops as suddenly, the flower transforms into a beautiful Christmas tree set with decorations. Suddenly, the Christmas tree catches fire and burns to a crisp.)</p>
         <p class="character">Sally:</p>
         <p class="dialogue">Oh no, this 'Christmas' it's a disaster- I've got to warn Jack!</p>
         <p class="action">(She runs off stage)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 5a - Pay the price</p>
-<audio controls>
-    <source src="mp3s/Pay the Price.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+        
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 10 - Pay the price</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Pay the Price.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
     </div>
 
 
@@ -447,19 +532,29 @@
         <p class="character">All together:</p>
         <p class="dialogue">We promise!</p>
         <p class="action">(Jack can't see, but all three giggle and sneakily cross their fingers behind their back, scene changes, Jack exits)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SONG 5b - Kidnap the Sandy Claws</p>
-<audio controls>
-    <source src="mp3s/Kidnap The Sandy Claws.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+ 
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 11 - Kidnap the Sandy Claws</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Kidnap The Sandy Claws.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+
         <p class="action">(Scene ends with the trio walking off with weapons and a great big Halloween bag)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">TRANSITION MUS 5c - Jack's Lament</p>
-<audio controls>
-    <source src="mp3s/Jack's Lament.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 12 - Jack's Lament</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Jack's Lament.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
     </div>
 
 
@@ -538,12 +633,15 @@
         <p class="character">ALL TRIO:</p>
         <p class="dialogue">For sure!</p>
         <p class="action">(The trio runs off quickly taking the bag with them, transition to next scene)</p>
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">TRANSITION MUS 5d - Elves</p>
-<audio controls>
-    <source src="mp3s/Elves.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 13 - Elves</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Elves.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
     </div>
     
     
@@ -567,12 +665,15 @@
         <p class="dialogue">TRICK!</p>
         <p class="action">(They bag Santa and he screams all the way. Transition)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">TRANSITION MUS 6a - Jack’s Lament Reprise</p>
-        <audio controls>
-            <source src="mp3s/Jack's Lament Reprise.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 14 - Jack’s Lament Reprise</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Jack's Lament Reprise.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
     </div>
     
     <div class="scene">
@@ -623,13 +724,21 @@
         <p class="dialogue">That’s it! If you won’t do anything to stop this, then I will.</p>
         <p class="action">(She exits)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">TRANSITION MUS 6b - Kidnap Sandy Claws (Strings)</p>
-        <audio controls>
-            <source src="mp3s/Kidnap The Sandy Claws Strings.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 15 - Kidnap Sandy Claws (Strings)</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Kidnap The Sandy Claws Strings.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+
     </div>
+
+
     
     <div class="scene">
         <p class="scene-heading">Scene 13 - Oogie Boogie</p>
@@ -655,22 +764,30 @@
         <p class="character">ALL TRIO:</p>
         <p class="dialogue">Tunnel!</p>
         <p class="action">(Santa falls down the tunnel tumbling into Oogie Boogie’s lair)</p>
-        
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SONG 6c - Oogie Boogie</p>
-        <audio controls>
-            <source src="mp3s/Oogie Boogies Song.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+
+            <!-- SONG -->
+            <div class="audio-player band">
+                <label for="band-audio" style="font-size: small;">MUS 16 - Oogie Boogie</label>
+                <audio id="band-audio" controls>
+                    <source src="mp3s/Oogie Boogies Song.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         
         <p class="action">(The song concludes and the Trio start laughing intensely)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">TRANSITION MUS 7a - Oh Fare Thee Well Reprise</p>
-        <audio controls>
-            <source src="mp3s/Oh Fare Thee Well Reprise.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+
+
+                <!-- SONG -->
+                <div class="audio-player band">
+                    <label for="band-audio" style="font-size: small;">MUS 17 - Oh Fare Thee Well Reprise</label>
+                    <audio id="band-audio" controls>
+                        <source src="mp3s/Oh Fare Thee Well Reprise.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
     </div>
 
 
@@ -700,13 +817,18 @@
         <p class="dialogue">That’s it! Now there’s nothing that can stop us.</p>
         <p class="action">(Jack enters the sleigh and starts off, transition occurs as members of Halloween Town cheer and yell holiday tidings)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 7b - Christmas Eve</p>
-        <audio controls>
-            <source src="mp3s/Christmas Eve.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+
+
+                <!-- SONG -->
+                <div class="audio-player band">
+                    <label for="band-audio" style="font-size: small;">MUS 18 - Christmas Eve</label>
+                    <audio id="band-audio" controls>
+                        <source src="mp3s/Christmas Eve.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+    
     
     <div class="scene">
         <p class="scene-heading">Scene 15 - Delivering Presents</p>
@@ -719,12 +841,13 @@
         <p class="action">(Jack’s sled explodes and he falls into a graveyard)</p>
         
         <!--VIDEO-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">PROJ. 7c - Jack’s Falling</p>
+        <div class="audio-player sfx">
+        <p style="font-size: small; margin-top: 0px; margin-left: 10px; margin-bottom: -0px">VID 2 - Jack’s Falling</p>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/4tGgXqZoATI" title="Jack Skellington shot down" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 </div>
-    
+</div>
     <div class="scene">
         <p class="scene-heading">Scene 16 - Sally to the Rescue</p>
         <p class="action">(Oogie Boogie is tormenting Sandy Claws)</p>
@@ -736,12 +859,15 @@
         <p class="dialogue">Oh just you wait Sandy… I’ve got to get my special dice for this roll. Don’t you go anywhere now… HeheHAHAHA</p>
         <p class="action">(Oogie goes off to find his dice, Sally appears just off-stage. She sneaks over to him)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS. 8a - Sally Sneaks</p>
-        <audio controls>
+
+            <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 19 - Sally Sneaks</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Sally Sneaks.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+    </div>
         
         <p class="character">Sally:</p>
         <p class="dialogue">Let’s get you out of here, quickly!</p>
@@ -751,12 +877,16 @@
         <p class="character">Oogie:</p>
         <p class="dialogue">WHAT? Do you think you are doing with my special prize?</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS. 8b - Sally Gets Caught</p>
-        <audio controls>
+
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 20 - Sally Gets Caught</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Sally Gets Caught.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+    </div>
+
         
         <p class="character">Sally:</p>
         <p class="dialogue">Oh no!</p>
@@ -764,14 +894,17 @@
         <p class="dialogue">Oh no…</p>
         <p class="character">Oogie:</p>
         <p class="dialogue">Well… they say two IS better than one… What do you say we have some spooktacular fun HEHEHEHEHA!</p>
-        
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS. 8c - Spooktacular Fun</p>
-        <audio controls>
+      
+
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 21 - Spooktacular Fun</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Spooktacular Fun.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
     </div>
+
     
     <div class="scene">
         <p class="scene-heading">Scene 17 - Jack Has Fallen</p>
@@ -784,12 +917,17 @@
         <p class="dialogue">Wait- the moon! It’s still high up… The night is young! There’s still time to save Christmas! There’s still time to put things right! I’ve got to get Sandy Claws back…</p>
         <p class="action">(Jack rushes out of the graveyard)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS. 8d - Christmas Eve Reprise</p>
-        <audio controls>
+
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 22 Christmas Eve Reprise</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Christmas Eve Reprise.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+    </div>
+
+
     </div>
     
     <div class="scene">
@@ -833,21 +971,28 @@
         <p class="dialogue">But most of all, you tried to ruin me.</p>
         
 <!--VIDEO-->
-<p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">PROJ. 9a - Boogie’s Death</p>
+<div class="audio-player sfx">
+<p style="font-size: small; margin-top: 0px; margin-left: 10px; margin-bottom: -0px">VID 3 - Boogie’s Death</p>
 <div class="video-container">
     <iframe src="https://www.youtube.com/embed/E1y4J-cMszg?start=18" title="The Nightmare Before Christmas: Oogie Boogie Death" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </div>
 
         <p class="action">(He pulls the last time and Boogie falls into lava, the bugs that were him start to melt in the lava pit. The last of the bugs try to run but Santa squishes it under his foot.)</p>
         <p class="character">Santa:</p>
         <p class="dialogue">Good riddance!</p>
 
-                        <!--SONG-->
-                        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS 9b - Sally's Song Reprise</p>
-                        <audio controls>
-                            <source src="mp3s/Sally's Song Reprise.mp3" type="audio/mp3">
-                            Your browser does not support the audio element.
-                        </audio>
+
+
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 23 - Sally's Song Reprise</label>
+        <audio id="band-audio" controls>
+            <source src="mp3s/Sally's Song Reprise.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
 
         <p class="character">Jack:</p>
         <p class="dialogue">Santa, I’m so very sorry for all of this… I’ve ruined Christmas…</p>
@@ -866,24 +1011,29 @@
         <p class="dialogue">That’s the best idea I’ve heard all night…</p>
         <p class="action">(They exit)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">MUS. 9b - Halloween Transition</p>
-        <audio controls>
+
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 24 - Halloween Transition</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Halloween Transition.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
     </div>
+</div>
     
     <div class="scene">
         <p class="scene-heading">Scene 19 - Jack, Sally Return to Halloween Town (Finale)</p>
         <p class="action">(The monsters of Halloween Town are sleeping or crying, suddenly a musical cue plays and Jack returns with Sally and the trio)</p>
         
-        <!--SONG-->
-        <p style="font-size: small; margin-top: 25px; margin-left: 10px; margin-bottom: -0px">SONG 9c - Halloween Finale</p>
-        <audio controls>
+    <!-- SONG -->
+    <div class="audio-player band">
+        <label for="band-audio" style="font-size: small;">MUS 25 - Halloween Finale</label>
+        <audio id="band-audio" controls>
             <source src="mp3s/Finale.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+    </div>
         
         <p class="character">Small Witch:</p>
         <p class="dialogue">Jack?</p>
@@ -919,6 +1069,5 @@
         <p class="character">ALL:</p>
         <p class="dialogue">Happy Halloween!</p>
         <p class="action">(End)</p>
-    </div>
 </body>
 </html>
