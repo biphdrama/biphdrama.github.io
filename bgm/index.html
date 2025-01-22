@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>International Thespian Society</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            color: #ddd;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .audio-controls {
+            margin-top: 2rem;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        button {
+            margin: 0.5rem;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        #visualizer {
+            width: 100%;
+            height: 200px;
+            background-color: #1a1a1a;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>International Thespian Society</h1>
+        <h2>Induction Ceremony</h2>
+        <h3>Background Music</h3>
+    </div>
+
+    <canvas id="visualizer"></canvas>
+
+    <div class="audio-controls">
+        <audio id="customAudio">
+            <source src="BGM.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div>
+            <button id="fadeInButton">Fade In</button>
+            <button id="fadeOutButton">Fade Out</button>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('customAudio');
+        const visualizer = document.getElementById('visualizer');
+        let fadeInterval;
+        let animationId;
+        const FADE_DURATION = 3000; // 3 seconds in milliseconds
+
+        // Set up audio context and analyzer
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const source = audioContext.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+
+        // Configure analyser
+        analyser.fftSize = 256;
+
+        // Set canvas size
+        function resizeCanvas() {
+            visualizer.width = visualizer.offsetWidth;
+            visualizer.height = visualizer.offsetHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
+        function fadeVolume(start, end, duration, callback) {
+            clearInterval(fadeInterval);
+            
+            const steps = 60;
+            const stepTime = duration / steps;
+            const stepChange = (end - start);
+            
+            let currentStep = 0;
+
+            fadeInterval = setInterval(() => {
+                currentStep++;
+                const progress = currentStep / steps;
+                const easedVolume = start + stepChange * easeInOutQuad(progress);
+                audio.volume = Math.min(Math.max(easedVolume, 0), 1);
+                
+                if (currentStep >= steps) {
+                    clearInterval(fadeInterval);
+                    audio.volume = end;
+                    if (callback) callback();
+                }
+            }, stepTime);
+        }
+
+        function drawVisualization() {
+            const canvas = visualizer;
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            analyser.getByteFrequencyData(dataArray);
+
+            ctx.fillStyle = '#3c3c3c';
+            ctx.fillRect(0, 0, width, height);
+
+            const barWidth = width / bufferLength * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i] / 2;
+                ctx.fillStyle = `rgb(${barHeight + 100}, 50, 50)`;
+                ctx.fillRect(x, height - barHeight, barWidth, barHeight);
+                x += barWidth + 1;
+            }
+
+            animationId = requestAnimationFrame(drawVisualization);
+        }
+
+        document.getElementById('fadeInButton').addEventListener('click', () => {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            audio.volume = 0;
+            audio.play();
+            fadeVolume(0, 1, FADE_DURATION);
+            drawVisualization();
+        });
+
+        document.getElementById('fadeOutButton').addEventListener('click', () => {
+            fadeVolume(audio.volume, 0, FADE_DURATION, () => {
+                audio.pause();
+                cancelAnimationFrame(animationId);
+                // Clear the visualizer
+                const ctx = visualizer.getContext('2d');
+                ctx.fillStyle = '#3c3c3c';
+                ctx.fillRect(0, 0, visualizer.width, visualizer.height);
+            });
+        });
+    </script>
+</body>
+</html>
