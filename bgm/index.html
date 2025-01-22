@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>International Thespian Society</title>
+    <title>ITS Background Music</title>
     <style>
         body {
             display: flex;
@@ -13,6 +13,7 @@
             background: #000;
             color: #fff;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
         .header {
@@ -67,9 +68,26 @@
             background-color: #1a1a1a;
             margin: 10px auto;
         }
+
+        .logocontainer {
+            position: relative;
+            min-height: 10vh;
+            padding-bottom: 50px;
+            width: 100%;
+        }
+
+        .logo {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 25vh;
+            height: auto;
+            z-index: 10; 
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>International Thespian Society</h1>
         <h2>Induction Ceremony</h2>
@@ -87,6 +105,10 @@
             <button id="fadeInButton">Fade In</button>
             <button id="fadeOutButton">Fade Out</button>
         </div>
+    </div>
+
+    <div class="logocontainer">        
+        <img src="BASIS logo/Full Logo White on Transparent.png" alt="BASIS Logo" class="logo">
     </div>
 
     <script>
