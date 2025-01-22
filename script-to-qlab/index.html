@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            margin: 10px 0;
+            padding: 10px;
+            font-family: monospace;
+        }
+        #output {
+            white-space: pre-wrap;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .copy-container {
+            display: none;
+            margin-top: 10px;
+        }
+        .feedback {
+            color: #4CAF50;
+            margin-left: 10px;
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feedback.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Script Processor</h1>
+    <p>Paste your script below:</p>
+    <textarea id="input"></textarea>
+    <br>
+    <button onclick="processScript()">Process Script</button>
+    <div id="output"></div>
+    <div class="copy-container" id="copyContainer">
+        <button onclick="copyToClipboard()" id="copyButton">Copy to Clipboard</button>
+        <span class="feedback" id="copyFeedback">✓ Copied!</span>
+    </div>
+
+    <script>
+        function processScript() {
+            const input = document.getElementById('input').value;
+            const container = document.createElement('div');
+            container.innerHTML = input;
+
+            const dialogues = container.querySelectorAll('p.dialogue');
+            let output = '';
+
+            dialogues.forEach(dialogue => {
+                const midiData = JSON.parse(dialogue.getAttribute('data-midi'));
+                output += `Dialogue: ${dialogue.textContent}\n`;
+                output += `channel: ${midiData.channel}, note: ${midiData.note}, velocity: ${midiData.velocity}\n\n`;
+            });
+
+            document.getElementById('output').textContent = output;
+            document.getElementById('copyContainer').style.display = output ? 'block' : 'none';
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(output)
+                .then(() => {
+                    const feedback = document.getElementById('copyFeedback');
+                    feedback.classList.add('show');
+                    setTimeout(() => {
+                        feedback.classList.remove('show');
+                    }, 2000);
+                })
+                .catch(err => alert('Failed to copy: ' + err));
+        }
+
+        // Example script for testing
+        const exampleScript = `
+    <div class="scene">
+        <p class="scene-heading">A Winter Wonderland Adventure</p>
+        <p class="character">Narrator 1 (Heaven):</p>
+        <p class="dialogue" data-midi='{"channel": 1, "note": 60, "velocity": 64}'>On a cold winter morning, four children decided to explore the snowy forest.</p>
+        
+        <p class="character">Narrator 2 (Avery):</p>
+        <p class="dialogue" data-midi='{"channel": 1, "note": 62, "velocity": 64}'>They had heard tales of a magical winter wonderland where animals talked and snowflakes danced in the air.</p>`;
+
+        // Load example script on page load
+        window.onload = function() {
+            document.getElementById('input').value = exampleScript;
+        }
+    </script>
+</body>
+</html>
