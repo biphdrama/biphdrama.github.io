@@ -127,7 +127,7 @@ header {
 }
 
 .video-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: 0 12px 20px -8px rgb(0 0 0 / 0.4);
 }
 
@@ -149,7 +149,7 @@ header {
 }
 
 .video-card:hover .thumbnail {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .play-overlay {
